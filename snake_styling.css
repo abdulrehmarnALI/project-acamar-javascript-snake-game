@@ -1,13 +1,15 @@
 :root {
---game-grid-width: 2.5vw;
---game-grid-height: 2.5vh
+--game-grid-width: 3vw;
+--game-grid-height: 3vh;
+--game-border-width: calc(var(--game-grid-width)*1.67);
+--game-border-height: calc(var(--game-grid-height)*1.67)
 }
 
 .container_main {
     display: flex;
     flex-direction: column;
-    margin: 0 10%;
-    max-width: 80%;
+    margin: 0 3%;
+    max-width: 94%;
 }
 
 .container_scores {
@@ -19,15 +21,15 @@
 .container_game {
     justify-content: center;
     display: grid;
-    grid-template-columns: [leftborder] 4vw repeat(24, var(--game-grid-width)) [rightborder] 4vw;
-    grid-template-rows: [topborder] 4vh repeat(24, var(--game-grid-width)) [rightborder] 4vh;
+    grid-template-columns: [leftborder] var(--game-border-width) repeat(24, var(--game-grid-width)) [rightborder] var(--game-border-width);
+    grid-template-rows: [topborder] var(--game-border-height) repeat(24, var(--game-grid-width)) [rightborder] var(--game-border-height);
     border: 1px solid red;
 }
 
 /* .container_game >  */
 
 .leftborderone {
-    
+
 }
 
 .subcontainer_mid {
@@ -57,7 +59,7 @@
 
 @media (orientation: landscape) {
     .container_game {
-        grid-template-columns: [leftborder] 4vw repeat(24, var(--game-grid-height)) [rightborder] 4vw;
-        grid-template-rows: [topborder] 4vh repeat(24, var(--game-grid-height)) [rightborder] 4vh;;
+        grid-template-columns: [leftborder] var(--game-border-width) repeat(24, var(--game-grid-height)) [rightborder] var(--game-border-width);
+        grid-template-rows: [topborder] var(--game-border-height) repeat(24, var(--game-grid-height)) [bottomborder] var(--game-border-height);
     }
 }
