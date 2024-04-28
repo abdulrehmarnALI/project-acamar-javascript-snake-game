@@ -2,13 +2,32 @@ const gridContainer = document.getElementById('gameContainer');
 const gameGridSize = 24;
 const fullGridSize = gameGridSize + 2;
 let borderDivClass = 'borderCell';
-let gameGridDivClass = 'gameCell'
+let gameGridDivClass = 'gameCell';
+let borderCellsArray = [];
+let gameCellsArray = [];
 
 function populateGrid() {
     for(let i = 0; i < fullGridSize*fullGridSize; i++) {
         let cell = document.createElement('div');
         gridContainer.appendChild(cell);
     }
+}
+
+// This function defines an array for the border cells so that they can be easily addressed in order (array is set to start from top left border cell and work clockwise around to the last border cell)
+function defineBorderCellsGroup() {
+    for(i=0; i < gameGridSize+2; i++) {
+        borderCellsArray.push('x0y'+i)
+    }
+    for(j=1; j < gameGridSize+2; j++) {
+        borderCellsArray.push('x'+j+'y'+(gameGridSize+1))
+    }
+    for(k=gameGridSize+1; k > 0; k--) {
+        borderCellsArray.push('x'+(gameGridSize+1)+'y'+(k-1))
+    }
+    for(l=gameGridSize; l > 0; l--) {
+        borderCellsArray.push('x'+l+'y0')
+    }
+    console.log(borderCellsArray)
 }
 
 function populateGrid2() {
@@ -35,6 +54,10 @@ function populateGrid2() {
 }
 
 
+function differentiateCells() {
+    
+}
+
 // after starting the below function, thinking this could be more easily achived (maybe) bu utilising grid-template-areas
 function GridIntroAnimation() {
     let childDivs = gridContainer.getElementsByTagName('div');
@@ -42,10 +65,11 @@ function GridIntroAnimation() {
     for(i=0; i < childDivs.length; i++) {
         if(childDivs[i].classList.contains(borderDivClass)){
             console.log(childDivs[i])
-            childDivs[i].style += '; background-color: red';
+            childDivs[i].style += '; background-color: green';
         }
     }
 }
 
 populateGrid2()
+defineBorderCellsGroup()
 GridIntroAnimation()

@@ -1,8 +1,8 @@
 :root {
 --game-grid-width: 3vw;
 --game-grid-height: 3vh;
---game-border-width: calc(var(--game-grid-width)*1.67);
---game-border-height: calc(var(--game-grid-height)*1.67)
+--game-border-width: calc(var(--game-grid-height)*1);
+--game-border-height: calc(var(--game-grid-height)*1)
 }
 
 .container_main {
@@ -58,6 +58,10 @@
 
 
 @media (orientation: landscape) {
+    :root {
+        --game-border-width: calc(var(--game-grid-width)*1);
+        --game-border-height: calc(var(--game-grid-width)*1);
+    }
     .container_game {
         grid-template-columns: [leftborder] var(--game-border-width) repeat(24, var(--game-grid-height)) [rightborder] var(--game-border-width);
         grid-template-rows: [topborder] var(--game-border-height) repeat(24, var(--game-grid-height)) [bottomborder] var(--game-border-height);
