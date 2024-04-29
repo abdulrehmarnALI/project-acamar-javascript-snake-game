@@ -53,9 +53,18 @@ function populateGrid2() {
     }
 }
 
+function gameLoop() {}
 
-function differentiateCells() {
-    
+
+function differentiateCells(array) {
+    i=0;
+    if(i >= 0) {
+        setTimeout()
+    }
+}
+
+function GridIntroAnimation2() {
+
 }
 
 // after starting the below function, thinking this could be more easily achived (maybe) bu utilising grid-template-areas
@@ -69,6 +78,7 @@ function GridIntroAnimation() {
         }
     }
 }
+
 
 populateGrid2()
 defineBorderCellsGroup()
